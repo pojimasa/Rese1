@@ -1,16 +1,16 @@
-# Atte（勤怠管理アプリ）
-
+# Rese（リーズ）
+ある会社の飲食店予約サービス
 ## 作成した目的
-
+外部の飲食店予約サービスでは手数料を取られるので自社で予約サービスを持ちたい。
 ## アプリケーションURL
 phpMyAdmin: http://localhost:8081/
 
 開発環境： http://localhost:8080/
 
 利用者
-http://localhost:8080/register（会員登録view）
+http://localhost:8080/register （会員登録view）
 管理者、店舗代理人
-http://localhost:8080/admin/register（会員登録view）
+http://localhost:8080/admin/register （会員登録view）
 
 ## 機能一覧
 ・会員登録、ログインページではlaravelの認証機能を利用
