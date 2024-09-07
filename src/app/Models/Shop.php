@@ -14,11 +14,29 @@ class Shop extends Model
         'email',
         'password',
         'description',
-        'address'
+        'address',
+        'image',
+        'location',
+        'genre',
+        'category',
+        'user_id',
     ];
 
     public function setPasswordAttribute($value)
     {
         $this->attributes['password'] = bcrypt($value);
+    }
+
+    public function likes()
+    {
+        return $this->hasMany(Like::class);
+    }
+
+    public function isLikedByAuthUser()
+    {
+        if (auth()->check()) {
+            return $this->likes()->where('user_id', auth()->id())->exists();
+        }
+        return false;
     }
 }

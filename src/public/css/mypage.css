@@ -1,0 +1,313 @@
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f2f2f2;
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+.mypage-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+}
+
+.user-name {
+    text-align: center;
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #000;
+}
+
+.main-content {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 1200px;
+    gap: 20px;
+}
+
+@media screen and (min-width: 768px) {
+    .main-content {
+        flex-direction: row;
+    }
+}
+
+.reservation-status,
+.favorites-section {
+    flex: 1;
+    margin: 0 10px;
+    color: #000;
+}
+
+h2,
+h3 {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.alert {
+    padding: 15px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.alert-success {
+    background-color: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+    text-align: center;
+}
+
+.alert-error {
+    background-color: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+    text-align: center;
+}
+
+.reservations,
+.favorites {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+.shop-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.shop-item {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    width: calc(50% - 20px);
+}
+
+.shop-item img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.shop-info {
+    padding: 15px;
+}
+
+.shop-info h2 {
+    font-size: 18px;
+    margin-bottom: 10px;
+    text-align: left;
+}
+
+.shop-info p {
+    margin: 5px 0;
+    text-align: left;
+}
+
+.shop-actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.shop-info-button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 7px 15px;
+    border-radius: 5px;
+    text-decoration: none;
+    display: inline-block;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.shop-info-button:hover {
+    background-color: #0056b3;
+}
+
+.favorite-card {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    width: calc(25% - 20px);
+    text-align: center;
+    flex: 1 1 calc(50% - 20px);
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+}
+
+.favorite-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.favorite-card h3,
+.favorite-card p {
+    margin: 5px 0;
+    text-align: left;
+}
+
+.favorite-card .favorite-actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+    gap: 20px;
+}
+
+.detail-button {
+    background-color: rgb(72, 88, 255);
+    color: #fff;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 5px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background-color 0.3s ease-in-out, transform 0.3s ease-in-out;
+    white-space: nowrap;
+}
+
+.detail-button:hover {
+    background-color: #005bb5;
+}
+
+.like-button {
+    display: flex;
+    align-items: center;
+}
+
+.like-button .btn-like {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 24px;
+    color: #ff0000;
+    transition: color 0.3s ease-in-out;
+}
+
+.like-button .btn-like:hover {
+    color: #ff6666;
+}
+
+.reservation-card,
+.favorite-card {
+    background-color: #fff;
+    color: #333;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
+    text-align: left;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: box-shadow 0.3s ease-in-out;
+}
+
+.reservation-card {
+    background-color: rgb(72, 88, 255);
+    color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
+    text-align: left;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: box-shadow 0.3s ease-in-out;
+    position: relative;
+    margin: 20px auto;
+}
+
+.reservation-card p,
+.favorite-card h3,
+.favorite-card p {
+    margin: 5px 0;
+    width: 100%;
+}
+
+.reservation-card .reservation-details p {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 0;
+    padding: 5px 0;
+    border-bottom: 1px solid #ddd;
+}
+
+.reservation-card .reservation-details p:last-child {
+    border-bottom: none;
+}
+
+.reservation-card:hover,
+.favorite-card:hover {
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.edit-button,
+.update-button,
+.delete-button {
+    background-color: rgb(72, 88, 255);
+    color: #fff;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out, transform 0.3s ease-in-out;
+    margin-top: 10px;
+    text-align: center;
+}
+
+.edit-button:hover,
+.update-button:hover,
+.delete-button:hover {
+    background-color: #005bb5;
+}
+
+.delete-button {
+    background-color: transparent;
+    color: #fff;
+    border: 2px solid #fff;
+    padding: 6px;
+    border-radius: 50%;
+    cursor: pointer;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 24px;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s ease-in-out, border-color 0.3s ease-in-out;
+    text-align: center;
+    line-height: 1;
+}
+
+.delete-button:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    border-color: #fff;
+}
+

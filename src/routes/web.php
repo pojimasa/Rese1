@@ -2,14 +2,17 @@
 
 use Laravel\Fortify\Fortify;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\RegisteredUserController;
-use App\Http\Controllers\AuthenticatedSessionController;
 use App\Http\Controllers\ThanksController;
 use App\Http\Controllers\ShopController;
 use App\Http\Controllers\ReservationController;
 use App\Http\Controllers\MypageController;
 use App\Http\Controllers\HomeController;
-use App\Http\Controllers\MenuController;
+use App\Http\Controllers\RatingController;
+use App\Http\Controllers\ManagerController;
+use App\Http\Controllers\AdminAuthController;
+use App\Http\Controllers\NotificationController;
+use App\Http\Controllers\AuthController;
+use App\Http\Controllers\PaymentController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -20,29 +23,66 @@ use App\Http\Controllers\MenuController;
 | contains the "web" middleware group. Now create something great!
 |
 */
+Auth::routes(['verify' => true]);
 
-Route::middleware(['guest'])->group(function () {
-    Route::get('/register', [RegisteredUserController::class, 'create'])->name('register');
-    Route::post('/register', [RegisteredUserController::class, 'store']);
-    Route::get('/login', [AuthenticatedSessionController::class,'showLoginForm'])->name('login');
-    Route::post('/login', [AuthenticatedSessionController::class, 'login']);
-});
+Route::get('/register', [AuthController::class,'getRegister'])->name('register');
+Route::post('/register', [AuthController::class,'postRegister']);
+
+Route::get('/login', [AuthController::class,'getLogin'])->name('login');;
+Route::post('/login', [AuthController::class,'postLogin']);
 
 Route::get('/thanks', [ThanksController::class, 'index'])->name('thanks');
 
-Route::get('/done', [ReservationController::class, 'done'])->name('reservation.done');
+Route::get('/', [HomeController::class, 'index'])->name('home');
+Route::get('/shops/{id}', [ShopController::class, 'show'])->name('shops.show');
+Route::get('/detail/{shop_id}', [ShopController::class, 'detail'])->name('shop.detail');
+Route::post('/manager/save-image/{shop}', [ShopController::class, 'saveImage'])->name('manager.save-image');
 
-Route::get('/', [ShopController::class, 'index'])->name('home');
-Route::get('/detail/{shop_id}', [ShopController::class, 'detail']);
-
-Route::get('/mypage', [MypageController::class, 'index'])->name('mypage');
-
-Route::post('/logout', [AuthenticatedSessionController::class, 'logout'])->name('logout');
 Route::middleware(['auth'])->group(function () {
-    Route::post('/logout-confirm', [AuthenticatedSessionController::class, 'showLogoutConfirm'])->name('logout.confirm');
-    Route::delete('/logout', [AuthenticatedSessionController::class, 'destroy'])->name('logout.destroy');
+    Route::get('/mypage', [MypageController::class, 'index'])->name('mypage');
+    Route::delete('/reservation/{id}', [MypageController::class, 'destroy'])->name('reservation.destroy');
+    Route::patch('/reservation/{id}', [MypageController::class, 'update'])->name('reservation.update');
+    Route::post('/logout', [AuthController::class, 'getLogout'])->name('logout');
+    Route::post('/reservation', [ReservationController::class, 'store'])->name('reservation.store');
+    Route::get('/done/{reservation_id}', [ReservationController::class, 'done'])->name('reservation.done');
 });
 
-Route::get('/menu', [MenuController::class, 'index'])->name('menu');
+Route::post('/shop/like/{id}', [HomeController::class, 'like'])->name('shop.like');
+Route::post('/shop/unlike/{id}', [HomeController::class, 'unlike'])->name('shop.unlike');
+Route::get('/search', [HomeController::class, 'search'])->name('shop.search');
 
-Route::get('/', [HomeController::class, 'index'])->name('home');
+Route::post('/ratings', [RatingController::class, 'store'])->name('ratings.store');
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home.page');
+
+Route::prefix('manager')->middleware(['auth'])->group(function () {
+    Route::get('dashboard', [ManagerController::class, 'dashboard'])->name('manager.dashboard');
+    Route::get('shops', [ManagerController::class, 'shops'])->name('manager.shops');
+    Route::get('shops/create', [ManagerController::class, 'createShop'])->name('manager.create-shop');
+    Route::post('shops', [ManagerController::class, 'storeShop'])->name('manager.store-shop');
+    Route::get('shops/{shop}/edit', [ManagerController::class, 'editShop'])->name('manager.edit-shop');
+    Route::put('shops/{shop}', [ManagerController::class, 'updateShop'])->name('manager.update-shop');
+    Route::get('reservations', [ManagerController::class, 'reservations'])->name('manager.reservations');
+    Route::get('create-manager', [ManagerController::class, 'createManager'])->name('manager.createManager');
+    Route::post('store-manager', [ManagerController::class, 'storeManager'])->name('manager.storeManager');
+    Route::get('/notifications/create', [NotificationController::class, 'create'])->name('notifications.create');
+    Route::post('/notifications', [NotificationController::class, 'store'])->name('notifications.store');
+});
+
+Route::prefix('admin')->group(function () {
+    Route::get('register', [AdminAuthController::class, 'showRegistrationForm'])->name('admin.register');
+    Route::post('register', [AdminAuthController::class, 'register']);
+
+    Route::get('login', [AdminAuthController::class, 'showLoginForm'])->name('admin.login');
+    Route::post('login', [AdminAuthController::class, 'login']);
+    Route::post('logout', [AdminAuthController::class, 'logout'])->name('admin.logout');
+});
+
+Route::prefix('payment')->name('payment.')->group(function () {
+    Route::get('/create', [PaymentController::class, 'create'])->name('create');
+    Route::post('/store', [PaymentController::class, 'store'])->name('store');
+});
+
+Route::get('/test', function () {
+    return view('test');
+});

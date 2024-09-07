@@ -1,40 +1,45 @@
 @extends('layouts.app')
 
 @section('css')
-<link rel="stylesheet" href="{{ asset('css/auth/login.css') }}">
+<link rel="stylesheet" href="{{ asset('css/admin/login.css') }}">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 @endsection
-
-@section('link')
 
 @section('content')
 <div class="login-container">
-  <div class="login-form">
-    <h2 class="login-form__heading content__heading">ログイン</h2>
-    <div class="login-form__inner">
-      <form class="login-form__form" action="{{ route('login') }}" method="post">
-      @csrf
-        <div class="login-form__group">
-            <input class="login-form__input" type="mail" name="email" id="email" placeholder="メールアドレス">
-              <p class="login-form__error-message">
-              @error('email')
-              {{ $message }}
-              @enderror
-              </p>
-        </div>
-        <div class="login-form__group">
-            <input class="login-form__input" type="password" name="password" id="password" placeholder="パスワード">
-              <p class="login-form__error-message">
-              @error('password')
-              {{ $message }}
-              @enderror
-              </p>
-        </div>
-        <div class="btn">
-          <button class="form__button-submit" type="submit">ログイン</button>
-        </div>
-      </form>
+    @if (session('result'))
+    <div class="alert alert-danger">
+        {{ session('result') }}
     </div>
-  </div>
+    @endif
+  <main class="login-form">
+    <div class="login-form__header">
+      <h2 class="login-form__heading">Login</h2>
+    </div>
+    <form class="login-form__form" action="{{ route('login') }}" method="post">
+      @csrf
+      <div class="login-form__group">
+        <i class="fas fa-envelope"></i>
+        <input class="login-form__input" type="email" name="email" id="email" placeholder="Email" value="{{ old('email') }}">
+        @if ($errors->has('email'))
+          <small class="text-danger">
+            ※{{ $errors->first('email') }}
+          </small>
+        @endif
+      </div>
+      <div class="login-form__group">
+        <i class="fas fa-lock"></i>
+        <input class="login-form__input" type="password" name="password" id="password" placeholder="Password">
+        @if ($errors->has('password'))
+          <small class="text-danger">
+            ※{{ $errors->first('password') }}
+          </small>
+        @endif
+      </div>
+      <div class="btn">
+        <button class="login-form__btn" type="submit">ログイン</button>
+      </div>
+    </form>
+  </main>
 </div>
 @endsection
-

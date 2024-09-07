@@ -4,160 +4,133 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Validation Language Lines
+    | バリデーション言語ライン
     |--------------------------------------------------------------------------
     |
-    | The following language lines contain the default error messages used by
-    | the validator class. Some of these rules have multiple versions such
-    | as the size rules. Feel free to tweak each of these messages here.
+    | 以下の言語ラインは、バリデーションクラスによって使用されるデフォルトのエラーメッセージです。
+    | 一部のルールには複数のバージョンがあります。必要に応じて、これらのメッセージを調整できます。
     |
     */
 
-    'accepted' => 'The :attribute must be accepted.',
-    'accepted_if' => 'The :attribute must be accepted when :other is :value.',
-    'active_url' => 'The :attribute is not a valid URL.',
-    'after' => 'The :attribute must be a date after :date.',
-    'after_or_equal' => 'The :attribute must be a date after or equal to :date.',
-    'alpha' => 'The :attribute must only contain letters.',
-    'alpha_dash' => 'The :attribute must only contain letters, numbers, dashes and underscores.',
-    'alpha_num' => 'The :attribute must only contain letters and numbers.',
-    'array' => 'The :attribute must be an array.',
-    'before' => 'The :attribute must be a date before :date.',
-    'before_or_equal' => 'The :attribute must be a date before or equal to :date.',
+    'accepted' => ':attribute は承認されなければなりません。',
+    'accepted_if' => ':other が :value のとき、:attribute は承認されなければなりません。',
+    'active_url' => ':attribute は有効なURLではありません。',
+    'after' => ':attribute は :date より後の日付でなければなりません。',
+    'after_or_equal' => ':attribute は :date 以降の日付でなければなりません。',
+    'alpha' => ':attribute は文字のみで構成されなければなりません。',
+    'alpha_dash' => ':attribute は文字、数字、ダッシュ、アンダースコアのみで構成されなければなりません。',
+    'alpha_num' => ':attribute は文字と数字のみで構成されなければなりません。',
+    'array' => ':attribute は配列でなければなりません。',
+    'before' => ':attribute は :date より前の日付でなければなりません。',
+    'before_or_equal' => ':attribute は :date 以前の日付でなければなりません。',
     'between' => [
-        'numeric' => 'The :attribute must be between :min and :max.',
-        'file' => 'The :attribute must be between :min and :max kilobytes.',
-        'string' => 'The :attribute must be between :min and :max characters.',
-        'array' => 'The :attribute must have between :min and :max items.',
+        'numeric' => ':attribute は :min から :max までの間でなければなりません。',
+        'file' => ':attribute は :min キロバイトから :max キロバイトの間でなければなりません。',
+        'string' => ':attribute は :min 文字から :max 文字の間でなければなりません。',
+        'array' => ':attribute は :min 個から :max 個のアイテムでなければなりません。',
     ],
-    'boolean' => 'The :attribute field must be true or false.',
-    'confirmed' => 'The :attribute confirmation does not match.',
-    'current_password' => 'The password is incorrect.',
-    'date' => 'The :attribute is not a valid date.',
-    'date_equals' => 'The :attribute must be a date equal to :date.',
-    'date_format' => 'The :attribute does not match the format :format.',
-    'declined' => 'The :attribute must be declined.',
-    'declined_if' => 'The :attribute must be declined when :other is :value.',
-    'different' => 'The :attribute and :other must be different.',
-    'digits' => 'The :attribute must be :digits digits.',
-    'digits_between' => 'The :attribute must be between :min and :max digits.',
-    'dimensions' => 'The :attribute has invalid image dimensions.',
-    'distinct' => 'The :attribute field has a duplicate value.',
-    'email' => 'The :attribute must be a valid email address.',
-    'ends_with' => 'The :attribute must end with one of the following: :values.',
-    'enum' => 'The selected :attribute is invalid.',
-    'exists' => 'The selected :attribute is invalid.',
-    'file' => 'The :attribute must be a file.',
-    'filled' => 'The :attribute field must have a value.',
+    'boolean' => ':attribute フィールドは真偽値でなければなりません。',
+    'confirmed' => ':attribute の確認が一致しません。',
+    'current_password' => 'パスワードが正しくありません。',
+    'date' => ':attribute は有効な日付でなければなりません。',
+    'date_equals' => ':attribute は :date と同じ日付でなければなりません。',
+    'date_format' => ':attribute はフォーマット :format と一致しません。',
+    'declined' => ':attribute は拒否されなければなりません。',
+    'declined_if' => ':other が :value のとき、:attribute は拒否されなければなりません。',
+    'different' => ':attribute と :other は異なっていなければなりません。',
+    'digits' => ':attribute は :digits 桁でなければなりません。',
+    'digits_between' => ':attribute は :min 桁から :max 桁の間でなければなりません。',
+    'dimensions' => ':attribute の画像の寸法が無効です。',
+    'distinct' => ':attribute フィールドに重複する値があります。',
+    'email' => ':attribute は有効なメールアドレスでなければなりません。',
+    'ends_with' => ':attribute は以下のいずれかで終わる必要があります: :values。',
+    'enum' => '選択した :attribute は無効です。',
+    'exists' => '選択した :attribute は無効です。',
+    'file' => ':attribute はファイルでなければなりません。',
+    'filled' => ':attribute フィールドには値が必要です。',
     'gt' => [
-        'numeric' => 'The :attribute must be greater than :value.',
-        'file' => 'The :attribute must be greater than :value kilobytes.',
-        'string' => 'The :attribute must be greater than :value characters.',
-        'array' => 'The :attribute must have more than :value items.',
+        'numeric' => ':attribute は :value より大きくなければなりません。',
+        'file' => ':attribute は :value キロバイトより大きくなければなりません。',
+        'string' => ':attribute は :value 文字より大きくなければなりません。',
+        'array' => ':attribute は :value 個より多くのアイテムを含んでいなければなりません。',
     ],
     'gte' => [
-        'numeric' => 'The :attribute must be greater than or equal to :value.',
-        'file' => 'The :attribute must be greater than or equal to :value kilobytes.',
-        'string' => 'The :attribute must be greater than or equal to :value characters.',
-        'array' => 'The :attribute must have :value items or more.',
+        'numeric' => ':attribute は :value 以上でなければなりません。',
+        'file' => ':attribute は :value キロバイト以上でなければなりません。',
+        'string' => ':attribute は :value 文字以上でなければなりません。',
+        'array' => ':attribute は :value 個以上のアイテムを含んでいなければなりません。',
     ],
-    'image' => 'The :attribute must be an image.',
-    'in' => 'The selected :attribute is invalid.',
-    'in_array' => 'The :attribute field does not exist in :other.',
-    'integer' => 'The :attribute must be an integer.',
-    'ip' => 'The :attribute must be a valid IP address.',
-    'ipv4' => 'The :attribute must be a valid IPv4 address.',
-    'ipv6' => 'The :attribute must be a valid IPv6 address.',
-    'json' => 'The :attribute must be a valid JSON string.',
+    'image' => ':attribute は画像でなければなりません。',
+    'in' => '選択した :attribute は無効です。',
+    'in_array' => ':attribute フィールドは :other に存在しません。',
+    'integer' => ':attribute は整数でなければなりません。',
+    'ip' => ':attribute は有効なIPアドレスでなければなりません。',
+    'ipv4' => ':attribute は有効なIPv4アドレスでなければなりません。',
+    'ipv6' => ':attribute は有効なIPv6アドレスでなければなりません。',
+    'json' => ':attribute は有効なJSON文字列でなければなりません。',
     'lt' => [
-        'numeric' => 'The :attribute must be less than :value.',
-        'file' => 'The :attribute must be less than :value kilobytes.',
-        'string' => 'The :attribute must be less than :value characters.',
-        'array' => 'The :attribute must have less than :value items.',
+        'numeric' => ':attribute は :value より小さくなければなりません。',
+        'file' => ':attribute は :value キロバイトより小さくなければなりません。',
+        'string' => ':attribute は :value 文字より小さくなければなりません。',
+        'array' => ':attribute は :value 個未満のアイテムを含んでいなければなりません。',
     ],
     'lte' => [
-        'numeric' => 'The :attribute must be less than or equal to :value.',
-        'file' => 'The :attribute must be less than or equal to :value kilobytes.',
-        'string' => 'The :attribute must be less than or equal to :value characters.',
-        'array' => 'The :attribute must not have more than :value items.',
+        'numeric' => ':attribute は :value 以下でなければなりません。',
+        'file' => ':attribute は :value キロバイト以下でなければなりません。',
+        'string' => ':attribute は :value 文字以下でなければなりません。',
+        'array' => ':attribute は :value 個以上のアイテムを含んではなりません。',
     ],
-    'mac_address' => 'The :attribute must be a valid MAC address.',
+    'mac_address' => ':attribute は有効なMACアドレスでなければなりません。',
     'max' => [
-        'numeric' => 'The :attribute must not be greater than :max.',
-        'file' => 'The :attribute must not be greater than :max kilobytes.',
-        'string' => 'The :attribute must not be greater than :max characters.',
-        'array' => 'The :attribute must not have more than :max items.',
+        'numeric' => ':attribute は :max より大きくなってはいけません。',
+        'file' => ':attribute は :max キロバイトを超えてはいけません。',
+        'string' => ':attribute は :max 文字を超えてはいけません。',
+        'array' => ':attribute は :max 個を超えてはいけません。',
     ],
-    'mimes' => 'The :attribute must be a file of type: :values.',
-    'mimetypes' => 'The :attribute must be a file of type: :values.',
+    'mimes' => ':attribute は以下のタイプのファイルでなければなりません: :values。',
+    'mimetypes' => ':attribute は以下のタイプのファイルでなければなりません: :values。',
     'min' => [
-        'numeric' => 'The :attribute must be at least :min.',
-        'file' => 'The :attribute must be at least :min kilobytes.',
-        'string' => 'The :attribute must be at least :min characters.',
-        'array' => 'The :attribute must have at least :min items.',
+        'numeric' => ':attribute は少なくとも :min でなければなりません。',
+        'file' => ':attribute は少なくとも :min キロバイトでなければなりません。',
+        'string' => ':attribute は少なくとも :min 文字でなければなりません。',
+        'array' => ':attribute は少なくとも :min 個のアイテムを含んでいなければなりません。',
     ],
-    'multiple_of' => 'The :attribute must be a multiple of :value.',
-    'not_in' => 'The selected :attribute is invalid.',
-    'not_regex' => 'The :attribute format is invalid.',
-    'numeric' => 'The :attribute must be a number.',
-    'password' => 'The password is incorrect.',
-    'present' => 'The :attribute field must be present.',
-    'prohibited' => 'The :attribute field is prohibited.',
-    'prohibited_if' => 'The :attribute field is prohibited when :other is :value.',
-    'prohibited_unless' => 'The :attribute field is prohibited unless :other is in :values.',
-    'prohibits' => 'The :attribute field prohibits :other from being present.',
-    'regex' => 'The :attribute format is invalid.',
-    'required' => 'The :attribute field is required.',
-    'required_array_keys' => 'The :attribute field must contain entries for: :values.',
-    'required_if' => 'The :attribute field is required when :other is :value.',
-    'required_unless' => 'The :attribute field is required unless :other is in :values.',
-    'required_with' => 'The :attribute field is required when :values is present.',
-    'required_with_all' => 'The :attribute field is required when :values are present.',
-    'required_without' => 'The :attribute field is required when :values is not present.',
-    'required_without_all' => 'The :attribute field is required when none of :values are present.',
-    'same' => 'The :attribute and :other must match.',
+    'multiple_of' => ':attribute は :value の倍数でなければなりません。',
+    'not_in' => '選択した :attribute は無効です。',
+    'not_regex' => ':attribute の形式が無効です。',
+    'numeric' => ':attribute は数字でなければなりません。',
+    'password' => [
+        'letters' => ':attribute には少なくとも1つの文字が必要です。',
+        'mixed' => ':attribute には少なくとも1つの大文字と1つの小文字が必要です。',
+        'numbers' => ':attribute には少なくとも1つの数字が必要です。',
+        'symbols' => ':attribute には少なくとも1つの記号が必要です。',
+        'uncompromised' => '提供された :attribute は漏洩が確認されています。他の :attribute を使用してください。',
+    ],
+    'present' => ':attribute フィールドが存在しなければなりません。',
+    'prohibited' => ':attribute フィールドは禁止されています。',
+    'prohibited_if' => ':other が :value のとき、:attribute フィールドは禁止されています。',
+    'prohibited_unless' => ':other が :values にない限り、:attribute フィールドは禁止されています。',
+    'prohibits' => ':attribute フィールドは :other の存在を禁止しています。',
+    'regex' => ':attribute の形式が無効です。',
+    'required' => ':attribute フィールドは必須です。',
+    'required_if' => ':other が :value のとき、:attribute フィールドは必須です。',
+    'required_unless' => ':other が :values にない限り、:attribute フィールドは必須です。',
+    'required_with' => ':values が存在する場合、:attribute フィールドは必須です。',
+    'required_with_all' => ':values が存在する場合、:attribute フィールドは必須です。',
+    'required_without' => ':values が存在しない場合、:attribute フィールドは必須です。',
+    'required_without_all' => ':values がすべて存在しない場合、:attribute フィールドは必須です。',
+    'same' => ':attribute と :other は一致していなければなりません。',
     'size' => [
-        'numeric' => 'The :attribute must be :size.',
-        'file' => 'The :attribute must be :size kilobytes.',
-        'string' => 'The :attribute must be :size characters.',
-        'array' => 'The :attribute must contain :size items.',
+        'numeric' => ':attribute は :size でなければなりません。',
+        'file' => ':attribute は :size キロバイトでなければなりません。',
+        'string' => ':attribute は :size 文字でなければなりません。',
+        'array' => ':attribute は :size 個のアイテムを含んでいなければなりません。',
     ],
-    'starts_with' => 'The :attribute must start with one of the following: :values.',
-    'string' => 'The :attribute must be a string.',
-    'timezone' => 'The :attribute must be a valid timezone.',
-    'unique' => 'The :attribute has already been taken.',
-    'uploaded' => 'The :attribute failed to upload.',
-    'url' => 'The :attribute must be a valid URL.',
-    'uuid' => 'The :attribute must be a valid UUID.',
-
-    /*
-    |--------------------------------------------------------------------------
-    | Custom Validation Language Lines
-    |--------------------------------------------------------------------------
-    |
-    | Here you may specify custom validation messages for attributes using the
-    | convention "attribute.rule" to name the lines. This makes it quick to
-    | specify a specific custom language line for a given attribute rule.
-    |
-    */
-
-    'custom' => [
-        'attribute-name' => [
-            'rule-name' => 'custom-message',
-        ],
-    ],
-
-    /*
-    |--------------------------------------------------------------------------
-    | Custom Validation Attributes
-    |--------------------------------------------------------------------------
-    |
-    | The following language lines are used to swap our attribute placeholder
-    | with something more reader friendly such as "E-Mail Address" instead
-    | of "email". This simply helps us make our message more expressive.
-    |
-    */
-
-    'attributes' => [],
-
+    'starts_with' => ':attribute は以下のいずれかで始まる必要があります: :values。',
+    'string' => ':attribute は文字列でなければなりません。',
+    'timezone' => ':attribute は有効なタイムゾーンでなければなりません。',
+    'unique' => ':attribute はすでに存在しています。',
+    'uploaded' => ':attribute をアップロードできませんでした。',
+    'url' => ':attribute の形式が無効です。',
+    'uuid' => ':attribute は有効なUUIDでなければなりません。',
 ];

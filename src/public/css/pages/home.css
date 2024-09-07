@@ -4,6 +4,40 @@
     padding: 20px;
 }
 
+.search-form-wrapper {
+    text-align: right;
+    margin-bottom: 20px;
+}
+
+.search-form {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background-color: #f9f9f9;
+    border-radius: 5px;
+    padding: 5px;
+    border: 1px solid #ddd;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.search-form select,
+.search-form input[type="text"] {
+    padding: 8px;
+    border: none;
+    border-radius: 5px;
+}
+
+.search-form select {
+    background-color: #f9f9f9;
+    flex: 1;
+}
+
+.search-form input[type="text"] {
+    width: 200px;
+    box-sizing: border-box;
+    flex: 2;
+}
+
 .shop-list {
     display: flex;
     flex-wrap: wrap;
@@ -13,7 +47,7 @@
 .shop-item {
     background-color: #fff;
     border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
     overflow: hidden;
     width: calc(25% - 20px);
     text-align: center;
@@ -32,21 +66,53 @@
 .shop-info h2 {
     font-size: 18px;
     margin-bottom: 10px;
+    text-align: left;
 }
 
 .shop-info p {
     margin: 5px 0;
+    text-align: left;
 }
 
-.shop-info button {
-    background-color: #ff6600;
+.shop-actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.shop-info-button {
+    background-color: rgb(72, 88, 255);
     color: white;
     border: none;
-    padding: 10px 20px;
+    padding: 7px 15px;
     border-radius: 5px;
-    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
 }
 
-.shop-info button:hover {
-    background-color: #ff6600;
+.shop-info-button:hover {
+    background-color: #0056b3;
+}
+
+.like-button .btn-like {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 24px;
+    transition: color 0.3s ease-in-out;
+}
+
+.like-button .btn-like i {
+    color: #ccc;
+}
+
+.like-button .btn-like.liked i,
+.like-button .btn-like:hover i {
+    color: #ff0000;
+}
+
+@media (max-width: 768px) {
+    .shop-item {
+        width: calc(50% - 20px);
+    }
 }

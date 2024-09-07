@@ -1,41 +1,45 @@
 body {
-    background-color: #f7f7f7;
+    background-color: #f2f2f2;
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
 }
 
 .register-container {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100%;
     width: 100%;
+    height: 70vh;
+    padding: 20px;
+    box-sizing: border-box;
 }
 
 .register-form {
     background-color: #ffffff;
-    padding: 30px;
+    padding: 0;
     border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
     width: 100%;
     max-width: 400px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
 }
 
-.register-form__heading {
-    color: #ff6600;
-    text-align: center;
-    margin-bottom: 20px;
-    font-size: 24px;
+.register-form__header {
+    background-color: rgb(72, 88, 255);
+    color: white;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    text-align: left;
+    font-size: 15px;
+    padding: 0 0 0 18px;
+    font-weight: 200;
 }
 
 .register-form__inner {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    padding: 30px;
 }
 
 .register-form__form {
@@ -43,22 +47,31 @@ body {
 }
 
 .register-form__group {
-    margin-bottom: 20px;
     width: 100%;
+    position: relative;
+    display: flex;
+    align-items: center;
 }
 
 .register-form__input {
     width: 100%;
-    padding: 15px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
+    padding: 10px 10px 10px 10px;
+    border: none;
+    border-bottom: 1px solid #908c8c;
     box-sizing: border-box;
     font-size: 16px;
 }
 
 .register-form__input:focus {
-    border-color: #ff6600;
+    border-color: #007bff;
     outline: none;
+}
+
+.register-form__icon {
+    position: absolute;
+    left: 10px;
+    color: #908c8c;
+    font-size: 18px;
 }
 
 .register-form__error-message {
@@ -69,22 +82,25 @@ body {
 
 .btn {
     display: flex;
-    justify-content: center;
+    justify-content: flex-end;
     gap: 15px;
 }
 
 .register-form__btn {
-    background-color: #ff6600;
+    background-color: rgb(72, 88, 255);
     color: white;
-    padding: 15px 20px;
+    padding: 5px 15px;
     border: none;
-    border-radius: 4px;
     cursor: pointer;
     text-align: center;
-    text-decoration: none;
     font-size: 16px;
+    border-radius: 7px;
 }
 
 .register-form__btn:hover {
-    background-color: #e65c00;
+    background-color: #0056b3;
+}
+
+.text-danger {
+    color: #e03e00;
 }
