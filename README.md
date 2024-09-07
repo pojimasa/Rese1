@@ -9,22 +9,24 @@ phpMyAdmin: http://localhost:8081/
 
 利用者
 http://localhost:8080/register （会員登録view）
-管理者、店舗代理人
+管理者
 http://localhost:8080/admin/register （会員登録view）
 
 ## 機能一覧
 ・会員登録、ログインページではlaravelの認証機能を利用
 
 ## 使用技術(実行環境)
-PHP 8.3.4
+PHP 8.3.10
 
 Laravel Framework 8.83.27
 
 mysql 8.0.26
 
 ## テーブル設計
+<img width="1465" alt="スクリーンショット 2024-09-08 0 12 08" src="https://github.com/user-attachments/assets/eae3c517-ab8c-478a-8d18-0e298da0f78c">
 
 ## ER図
+<img width="524" alt="スクリーンショット 2024-09-07 23 56 30" src="https://github.com/user-attachments/assets/57689abd-0d50-4d1f-a101-78d054539ffc">
 
 # 環境構築
 　　Dockerビルド
