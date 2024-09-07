@@ -9,6 +9,7 @@ phpMyAdmin: http://localhost:8081/
 
 利用者
 http://localhost:8080/register （会員登録view）
+
 管理者
 http://localhost:8080/admin/register （会員登録view）
 
