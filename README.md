@@ -1,6 +1,7 @@
 # Rese（リーズ）
 <img width="1470" alt="スクリーンショット 2024-09-08 0 49 30" src="https://github.com/user-attachments/assets/2d3f35e4-d26f-46ed-8933-8acd5f638b2a">
 ある会社の飲食店予約サービス
+
 ## 作成した目的
 外部の飲食店予約サービスでは手数料を取られるので自社で予約サービスを持ちたい。
 
