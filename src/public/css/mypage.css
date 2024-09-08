@@ -85,7 +85,7 @@ h3 {
 .shop-item {
     background-color: #fff;
     border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
     overflow: hidden;
     box-sizing: border-box;
     display: flex;
@@ -140,7 +140,7 @@ h3 {
 .favorite-card {
     background-color: #fff;
     border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
     overflow: hidden;
     width: calc(25% - 20px);
     text-align: center;
@@ -211,7 +211,7 @@ h3 {
     color: #333;
     padding: 20px;
     border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
     width: 100%;
     max-width: 400px;
     text-align: left;
@@ -227,7 +227,7 @@ h3 {
     color: #fff;
     padding: 20px;
     border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
     width: 100%;
     max-width: 400px;
     text-align: left;

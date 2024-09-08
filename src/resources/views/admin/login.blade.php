@@ -14,8 +14,10 @@
     <form class="login-form__form" action="{{ route('admin.login') }}" method="post">
       @csrf
       <div class="login-form__group">
-        <i class="fas fa-envelope"></i>
-        <input class="login-form__input" type="email" name="email" id="email" placeholder="Email" value="{{ old('email') }}">
+        <div class="login-form__input-container">
+          <i class="fas fa-envelope login-form__icon"></i>
+          <input class="login-form__input" type="email" name="email" id="email" placeholder="Email" value="{{ old('email') }}">
+        </div>
         @if ($errors->has('email'))
           <small class="login-form__error-message">
             ※{{ $errors->first('email') }}
@@ -23,8 +25,10 @@
         @endif
       </div>
       <div class="login-form__group">
-        <i class="fas fa-lock"></i>
-        <input class="login-form__input" type="password" name="password" id="password" placeholder="Password">
+        <div class="login-form__input-container">
+          <i class="fas fa-lock login-form__icon"></i>
+          <input class="login-form__input" type="password" name="password" id="password" placeholder="Password">
+        </div>
         @if ($errors->has('password'))
           <small class="login-form__error-message">
             ※{{ $errors->first('password') }}

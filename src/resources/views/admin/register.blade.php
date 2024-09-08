@@ -14,8 +14,10 @@
     <form class="register-form__form" action="{{ route('admin.register') }}" method="post">
       @csrf
       <div class="register-form__group">
-        <i class="fas fa-user"></i>
-        <input class="register-form__input" type="text" name="name" id="name" placeholder="Username" value="{{ old('name') }}">
+        <div class="register-form__input-container">
+          <i class="fas fa-user register-form__icon"></i>
+          <input class="register-form__input" type="text" name="name" id="name" placeholder="Username" value="{{ old('name') }}">
+        </div>
         @if ($errors->has('name'))
           <small class="register-form__error-message">
             ※{{ $errors->first('name') }}
@@ -23,8 +25,10 @@
         @endif
       </div>
       <div class="register-form__group">
-        <i class="fas fa-envelope"></i>
-        <input class="register-form__input" type="text" name="email" id="email" placeholder="Email" value="{{ old('email') }}">
+        <div class="register-form__input-container">
+          <i class="fas fa-envelope register-form__icon"></i>
+          <input class="register-form__input" type="email" name="email" id="email" placeholder="Email" value="{{ old('email') }}">
+        </div>
         @if ($errors->has('email'))
           <small class="register-form__error-message">
             ※{{ $errors->first('email') }}
@@ -32,8 +36,10 @@
         @endif
       </div>
       <div class="register-form__group">
-        <i class="fas fa-lock"></i>
-        <input class="register-form__input" type="password" name="password" id="password" placeholder="Password">
+        <div class="register-form__input-container">
+          <i class="fas fa-lock register-form__icon"></i>
+          <input class="register-form__input" type="password" name="password" id="password" placeholder="Password">
+        </div>
         @if ($errors->has('password'))
           <small class="register-form__error-message">
             ※{{ $errors->first('password') }}

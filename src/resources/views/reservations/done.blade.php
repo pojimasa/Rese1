@@ -13,7 +13,6 @@
             <p>time: {{ \Carbon\Carbon::parse($reservation->reservation_date)->format('H:i') }}</p>
             <p>number: {{ $reservation->number_of_people }}人</p>
         </div>
-        <p><a href="{{ route('shop.detail', ['shop_id' => $reservation->shop_id]) }}">戻る</a></p>
-
+        <p><a href="{{ route('shop.detail', ['shop_id' => $reservation->shop->id]) }}">戻る</a></p>
     </div>
 @endsection

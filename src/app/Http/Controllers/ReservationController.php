@@ -16,7 +16,7 @@ class ReservationController extends Controller
     {
         $reservation = Reservation::with('shop')->findOrFail($reservation_id);
         $shop_id = $request->session()->get('shop_id');
-        return view('reservations.done', compact('reservation', 'shop_id'));
+        return view('reservations.done', compact('reservation'));
     }
 
     public function store(ReservationRequest $request)
@@ -31,6 +31,8 @@ class ReservationController extends Controller
         $reservation->reservation_date = $reservationDateTime;
         $reservation->number_of_people = $validatedData['number_of_people'];
         $reservation->save();
+
+        $request->session()->put('shop_id', $reservation->shop_id);
 
         $qrCodeUrl = "https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=" . urlencode(route('reservation.done', ['reservation_id' => $reservation->id]));
 
