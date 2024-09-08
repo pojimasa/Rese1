@@ -8,7 +8,7 @@ class PaymentController extends Controller
 {
     public function create()
     {
-        return view('shops.detail');
+        return view('payment.create');
     }
 
     public function store(Request $request)

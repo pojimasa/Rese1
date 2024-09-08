@@ -44,7 +44,7 @@
                             <p>Date {{ \Carbon\Carbon::parse($reservation->reservation_date)->format('Y-m-d') }}</p>
                             <p>Time {{ \Carbon\Carbon::parse($reservation->reservation_date)->format('H:i') }}</p>
                             <p>Number {{ $reservation->number_of_people }}</p>
-                            
+
                             <button type="button" class="edit-button" id="edit-button-{{ $reservation->id }}" onclick="toggleEditForm({{ $reservation->id }})">更新する</button>
 
                             <form id="edit-form-{{ $reservation->id }}" action="{{ route('reservation.update', $reservation->id) }}" method="POST" style="display: none;">

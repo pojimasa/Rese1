@@ -14,16 +14,16 @@ class CreateShopsTable extends Migration
     public function up()
     {
         Schema::dropIfExists('shops');
-        Schema::create('shops', function (Blueprint $table) {
-        $table->id();
-        $table->string('name');
-        $table->text('category')->nullable();
-        $table->string('genre')->nullable();
-        $table->string('location')->nullable();
-        $table->string('image')->nullable();
-        $table->timestamps();
-    });
 
+        Schema::create('shops', function (Blueprint $table) {
+            $table->id();
+            $table->string('name');
+            $table->text('category')->nullable();
+            $table->string('genre')->nullable();
+            $table->string('location')->nullable();
+            $table->string('image')->nullable();
+            $table->timestamps();
+        });
     }
 
     /**

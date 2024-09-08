@@ -24,9 +24,9 @@
 
             <div class="form-group">
                 <input type="date" name="reservation_date" id="reservation-date"
-                       value="{{ old('reservation_date') }}"
-                       class="form-control"
-                       min="{{ \Carbon\Carbon::today()->format('Y-m-d') }}">
+                    value="{{ old('reservation_date') }}"
+                    class="form-control"
+                    min="{{ \Carbon\Carbon::today()->format('Y-m-d') }}">
                 @error('reservation_date')
                     <div class="text-danger">※{{ $message }}</div>
                 @enderror

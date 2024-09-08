@@ -21,12 +21,7 @@ class ReservationController extends Controller
 
     public function store(ReservationRequest $request)
     {
-        $validatedData = $request->validate([
-            'shop_id' => 'required|exists:shops,id',
-            'reservation_date' => 'required|date',
-            'reservation_time' => 'required|date_format:H:i',
-            'number_of_people' => 'required|integer|min:1',
-        ]);
+        $validatedData = $request->validated();
 
         $reservationDateTime = $validatedData['reservation_date'] . ' ' . $validatedData['reservation_time'];
 

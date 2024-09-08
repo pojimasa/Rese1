@@ -33,7 +33,6 @@ body {
 
 @media (max-width: 768px) {
 
-    /* メニュー表示の基本設定 */
     .menu {
         position: fixed;
         top: 0;
@@ -43,14 +42,12 @@ body {
         background-color: rgba(0, 0, 0, 0.9);
         color: white;
         display: none;
-        /* メニュー内のコンテンツを中央寄せ */
         display: flex;
         justify-content: center;
         align-items: center;
         flex-direction: column;
     }
 
-    /* メニューを表示する */
     .menu.show {
         display: flex;
     }
@@ -63,7 +60,6 @@ body {
         cursor: pointer;
     }
 
-    /* 他のスタイル */
     .menu ul {
         padding: 0;
         text-align: center;

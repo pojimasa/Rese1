@@ -63,9 +63,6 @@
         @endforeach
     </section>
 </main>
-@endsection
-
-@section('scripts')
 <script>
     let timer;
     const searchInput = document.getElementById('search-input');

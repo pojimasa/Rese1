@@ -12,17 +12,22 @@ class AddIsStoreRepresentativeToUsersTable extends Migration
      * @return void
      */
     public function up()
-{
-    Schema::table('users', function (Blueprint $table) {
-        $table->boolean('is_store_representative')->default(false);
-    });
+    {
+        Schema::table('users', function (Blueprint $table) {
+            $table->boolean('is_store_representative')->default(false);
+        });
+    }
+
+    /**
+     * Reverse the migrations.
+     *
+     * @return void
+     */
+    public function down()
+    {
+        Schema::table('users', function (Blueprint $table) {
+            $table->dropColumn('is_store_representative');
+        });
+    }
 }
 
-public function down()
-{
-    Schema::table('users', function (Blueprint $table) {
-        $table->dropColumn('is_store_representative');
-    });
-}
-
-}

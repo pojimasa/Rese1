@@ -295,10 +295,10 @@ button:hover {
     border-radius: 5px;
     cursor: pointer;
     width: 100%;
-    max-width: 200px;
     text-align: center;
     box-sizing: border-box;
     margin: 0 auto;
+    margin-bottom: 0%;
 }
 
 .btn-primary:hover {

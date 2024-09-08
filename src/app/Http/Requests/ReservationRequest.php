@@ -16,7 +16,7 @@ class ReservationRequest extends FormRequest
         return [
             'reservation_date' => 'required|date',
             'reservation_time' => 'required|date_format:H:i',
-            'number_of_people' => 'required|integer|min:1',
+            'number_of_people' => 'required|integer|min:1|max:4',
         ];
     }
 

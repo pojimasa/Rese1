@@ -5,7 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ThanksController;
 use App\Http\Controllers\ShopController;
 use App\Http\Controllers\ReservationController;
-use App\Http\Controllers\MypageController;
+use App\Http\Controllers\MyPageController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\RatingController;
 use App\Http\Controllers\ManagerController;
@@ -39,9 +39,9 @@ Route::get('/detail/{shop_id}', [ShopController::class, 'detail'])->name('shop.d
 Route::post('/manager/save-image/{shop}', [ShopController::class, 'saveImage'])->name('manager.save-image');
 
 Route::middleware(['auth'])->group(function () {
-    Route::get('/mypage', [MypageController::class, 'index'])->name('mypage');
-    Route::delete('/reservation/{id}', [MypageController::class, 'destroy'])->name('reservation.destroy');
-    Route::patch('/reservation/{id}', [MypageController::class, 'update'])->name('reservation.update');
+    Route::get('/mypage', [MyPageController::class, 'index'])->name('mypage');
+    Route::delete('/reservation/{id}', [MyPageController::class, 'destroy'])->name('reservation.destroy');
+    Route::patch('/reservation/{id}', [MyPageController::class, 'update'])->name('reservation.update');
     Route::post('/logout', [AuthController::class, 'getLogout'])->name('logout');
     Route::post('/reservation', [ReservationController::class, 'store'])->name('reservation.store');
     Route::get('/done/{reservation_id}', [ReservationController::class, 'done'])->name('reservation.done');
@@ -83,6 +83,3 @@ Route::prefix('payment')->name('payment.')->group(function () {
     Route::post('/store', [PaymentController::class, 'store'])->name('store');
 });
 
-Route::get('/test', function () {
-    return view('test');
-});

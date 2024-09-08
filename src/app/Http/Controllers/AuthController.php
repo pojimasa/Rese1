@@ -10,7 +10,6 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Http\Request;
 
-
 class AuthController extends Controller
 {
     public function getRegister()
@@ -19,22 +18,21 @@ class AuthController extends Controller
     }
 
     public function postRegister(RegisterRequest $request)
-{
-    try {
-        $user = User::create([
-            'name' => $request['name'],
-            'email' => $request['email'],
-            'password' => Hash::make($request['password']),
-        ]);
+    {
+        try {
+            $user = User::create([
+                'name' => $request['name'],
+                'email' => $request['email'],
+                'password' => Hash::make($request['password']),
+            ]);
 
-        event(new Registered($user));
+            event(new Registered($user));
 
-        return redirect('thanks')->with('result', '会員登録が完了しました');
-    } catch (\Throwable $th) {
-        return redirect('register')->with('result', 'エラーが発生しました');
+            return redirect('thanks')->with('result', '会員登録が完了しました');
+        } catch (\Throwable $th) {
+            return redirect('register')->with('result', 'エラーが発生しました');
+        }
     }
-}
-
 
     public function getLogin()
     {
@@ -42,17 +40,17 @@ class AuthController extends Controller
     }
 
     public function postLogin(LoginRequest $request)
-{
-    $credentials = $request->only('email', 'password');
+    {
+        $credentials = $request->only('email', 'password');
 
-    if (Auth::attempt($credentials)) {
-        return redirect('/');
-    } else {
-        return redirect('login')
-            ->withErrors(['email' => 'メールアドレスまたはパスワードが間違っております'])
-            ->withInput();
+        if (Auth::attempt($credentials)) {
+            return redirect('/');
+        } else {
+            return redirect('login')
+                ->withErrors(['email' => 'メールアドレスまたはパスワードが間違っております'])
+                ->withInput();
+        }
     }
-}
 
     public function getLogout()
     {

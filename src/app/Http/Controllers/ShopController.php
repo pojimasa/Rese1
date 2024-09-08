@@ -11,15 +11,8 @@ use Illuminate\Support\Facades\Storage;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Log;
 
-
 class ShopController extends Controller
 {
-    public function index()
-    {
-        $shops = Shop::all();
-        return view('shops.index', compact('shops'));
-    }
-
     public function detail($shop_id)
     {
         $shop = Shop::findOrFail($shop_id);
@@ -29,59 +22,43 @@ class ShopController extends Controller
         return view('shops.detail', compact('shop', 'reservation'));
     }
 
-    public function store(Request $request)
+    public function show($id)
+    {
+        $shop = Shop::findOrFail($id);
+
+        $canRate = false;
+        if (Auth::check()) {
+            $reservation = Reservation::where('user_id', Auth::id())
+                ->where('shop_id', $shop->id)
+                ->where('reservation_date', '<', Carbon::now())
+                ->first();
+            $canRate = $reservation !== null;
+        }
+
+        return view('shops.detail', compact('shop', 'canRate'));
+    }
+
+    public function saveImage(Request $request, $shopId)
     {
         $request->validate([
-            'name' => 'required|string|max:255',
-            'email' => 'required|string|email|max:255|unique:shops',
-            'password' => 'required|string|min:8',
-            'category' => 'nullable|string',
-            'location' => 'nullable|string',
-            'genre' => 'nullable|string',
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
         ]);
 
-        Shop::create($request->all());
+        $shop = Shop::findOrFail($shopId);
 
-        return redirect('/')->with('success', '飲食店が登録されました。');
+        if ($request->hasFile('image')) {
+            $image = $request->file('image');
+            $imagePath = $image->store('images', 'public');
+            $shop->image = $imagePath;
+            Log::info('Saved image path: ' . $imagePath);
+        }
+
+        $shop->save();
+
+        return redirect()->back()->with('status', '画像が保存されました。');
     }
 
-    public function show($id)
-{
-    $shop = Shop::findOrFail($id);
-
-    $canRate = false;
-    if (Auth::check()) {
-        $reservation = Reservation::where('user_id', Auth::id())
-            ->where('shop_id', $shop->id)
-            ->where('reservation_date', '<', Carbon::now())
-            ->first();
-        $canRate = $reservation !== null;
-    }
-
-    return view('shops.detail', compact('shop', 'canRate'));
-}
-public function saveImage(Request $request, $shopId)
-{
-    $request->validate([
-        'image' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
-    ]);
-
-    $shop = Shop::findOrFail($shopId);
-
-    if ($request->hasFile('image')) {
-        $image = $request->file('image');
-        $imagePath = $image->store('images', 'public');
-        $shop->image = $imagePath;
-        Log::info('Saved image path: ' . $imagePath);
-    }
-
-    $shop->save();
-
-    return redirect()->back()->with('status', '画像が保存されました。');
-}
-
-
-public function done($reservation_id)
+    public function done($reservation_id)
     {
         $reservation = Reservation::findOrFail($reservation_id);
         $shop_id = $reservation->shop_id;
